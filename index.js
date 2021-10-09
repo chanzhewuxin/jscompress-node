@@ -43,10 +43,10 @@ rl.question("请输入需要压缩的路径（默认路径）：", answer => {
     filePathCache.set(filePath, '');
 
     const result = UglifyJS.minify(fileContent, {
-      // keep_classnames: true,
+      mangle: { toplevel: true },
+      compress: true,
       output: {
-        ascii_only: true, // 允许unicode字符串
-        // ecma: 11,
+        ascii_only: true, // 允许unicode字符串 
       },
     });
 
